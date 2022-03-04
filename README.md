@@ -56,12 +56,26 @@ json:
 each property key is the property name as appear in the json file, the `parent` is the direct parent property of it, and the `index` in the property index in case the parent property type is array.
 the `index` property is no mandatory and can be `null`.
 ## How To Use
+* At the git folder build the project with the command
+```shell script
+> mvn compile
+```
+* To start the server via spring run
+```shell script
+> mvn exec:java -Dexec.mainClass=com.restservice.DataGenApp --quiet
+```
+<img src="images/pic1.png">
+now the server is up and listen through the port writen in the cmd, the default port is `8080`.
+
 
 ### Requirements
 ```text
-java version
-maven version
-maven dependencies
+java version 1.8.0_312
+maven version 3.6.0
+maven dependencies:
+    - org.json 20211205
+    - com.jayway.jsonpath 2.7.0
+    - junit 4.13.2
 ```
 ## Tests
 
