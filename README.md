@@ -24,12 +24,12 @@ The modules containing this project are:
 This objects hold the table structure, and the json property needed to create the table. 
 1. **Generator** - responsible to build the result table according to the struct in the configuration file, extract all the necessary values and return the table as json object. 
 1. **Rest Service** - the restAPI, spring service that received the json from the user and pass it to the handler.
-<img src="images/dataflow.png">
+<img src="uml/dataflow.png">
 
 #### Configuration File
 The configuration file `application.yml` can be found at `src\main\resources`.
 It consist of two sections: `table` and `json`.
-Markup : *  The `table` section hold the `columns`, and each columns contains unique id (serial number), the column name and the relevant properties from the json file that their data needs to be in this column.
+*  The `table` section hold the `columns`, and each columns contains unique id (serial number), the column name and the relevant properties from the json file that their data needs to be in this column.
 ```yaml
 table:
     columns:
@@ -40,7 +40,7 @@ table:
         name: full name
         jsonkeys: [first_name, last_name]
 ```
-Markup : * The `json` section contains all the relevant properties from the json that the program need to in order to create the table.
+* The `json` section contains all the relevant properties from the json that the program need to in order to create the table.
 all are under `properties`.
 ```yaml
 json:
