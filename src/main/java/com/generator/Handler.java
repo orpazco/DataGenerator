@@ -68,15 +68,15 @@ public class Handler {
     }
 
     // find the property value from the json file according to the configuration file
-    private String getPropertyValue(JSONObject jsonObj, JsonProp jsonConfig, List<String> jsonKeys) throws Exception {
+    private String getPropertyValue(JSONObject jsonObj, JsonProp property, List<String> jsonKeys) throws Exception {
         // add delimiter in case there is more than one field to add
         StringJoiner joiner = new StringJoiner(" ");
         // go through all json keys to find them in the json file
         for (String key: jsonKeys){
             // get the property data
-            PropData propData = jsonConfig.getDataByName(key);
+            PropData propData = property.getDataByName(key);
             // build the property path according to configuration
-            String path = getPath(key, propData, jsonConfig);
+            String path = getPath(key, propData, property);
             // get the property value according to the path that was built
             String value = JsonPath.read(jsonObj.toString(), path).toString();
             joiner.add(value);
@@ -88,10 +88,10 @@ public class Handler {
      * build the property path in the json file, so it will be possible to get the value
      * @param key the property name
      * @param propData the current property data
-     * @param jsonConfig configuration file
+     * @param property configuration file
      * @return the path to the property value in the json
      */
-    private String getPath(String key, PropData propData, JsonProp jsonConfig) throws Exception {
+    private String getPath(String key, PropData propData, JsonProp property) throws Exception {
         String noneStr = "none";
         String delimiter = ".";
         // the property is in the first level of the json
@@ -108,7 +108,7 @@ public class Handler {
                     builder.append("[").append(propData.getIndex()).append("]");
                 path.add(0, builder.toString());
                 // continue to the parent property of the current property
-                propData = jsonConfig.getDataByName(propData.getParent());
+                propData = property.getDataByName(propData.getParent());
             } while (!propData.getParent().equals(noneStr));
             // add to the end of the path the name of the prop
             path.add(key);
