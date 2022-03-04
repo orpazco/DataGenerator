@@ -24,7 +24,7 @@ The modules containing this project are:
 This objects hold the table structure, and the json property needed to create the table. 
 1. **Generator** - responsible to build the result table according to the struct in the configuration file, extract all the necessary values and return the table as json object. 
 1. **Rest Service** - the restAPI, spring service that received the json from the user and pass it to the handler.
-<img src="uml/dataflow.png">
+<img src="images/uml.png">
 
 #### Configuration File
 The configuration file `application.yml` can be found at `src\main\resources`.
