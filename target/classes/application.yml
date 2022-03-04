@@ -1,0 +1,42 @@
+structure:
+  table:
+    columns:
+      1:
+        name: id
+        jsonkeys: [id]
+      2:
+        name: full name
+        jsonkeys: [first_name, last_name]
+      3:
+        name: email
+        jsonkeys: [email]
+      4:
+        name: updated at
+        jsonkeys: [updated_at]
+      5:
+        name: MFA enabled
+        jsonkeys: [mfa_enabled]
+  json:
+    properties:
+      evidence_id:
+        parent: none
+      evidence_data:
+        parent: none
+      user-details:
+        parent: evidence_data
+        index: 0
+      id:
+        parent: user-details
+      first_name:
+        parent: user-details
+      last_name:
+        parent: user-details
+      email:
+        parent: user-details
+      security:
+        parent: evidence_data
+        index: 0
+      mfa_enabled:
+        parent: security
+      updated_at:
+        parent: user-details
