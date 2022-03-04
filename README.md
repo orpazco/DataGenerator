@@ -61,6 +61,7 @@ the `index` property is no mandatory and can be `null`.
 ```text
 java version
 maven version
+maven dependencies
 ```
 ## Tests
 

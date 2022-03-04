@@ -1,0 +1,58 @@
+{
+  "data": [{
+    "evidence_id":"1",
+    "evidence_data": [
+      {
+        "login_name": "anecdotes-exercise",
+        "role": "owner",
+        "user-details": {
+          "updated_at": "2021-07-26T09:41:56Z",
+          "id": 120000,
+          "email": "exercise@anecdotes.ai",
+          "first_name": "anec",
+          "last_name": "dotes"
+        },
+        "security": {
+          "mfa_enabled": true
+        }
+      }
+    ]
+  },{
+    "evidence_id":"2",
+    "evidence_data": [
+      {
+        "login_name": "anecdotes-exercise",
+        "role": "owner",
+        "user-details": {
+          "updated_at": "2022-06-20T09:41:56Z",
+          "id": 120000,
+          "email": "test123@anecdotes.ai",
+          "first_name": "test",
+          "last_name": "1"
+        },
+        "security": {
+          "mfa_enabled": false
+        }
+      }
+    ]
+  },{
+    "evidence_id":"3",
+    "evidence_data": [
+      {
+        "login_name": "anecdotes-exercise",
+        "role": "owner",
+        "user-details": {
+          "updated_at": "2000-07-26T09:41:56Z",
+          "id": 2345555,
+          "email": "example@anecdotes.ai",
+          "first_name": "test",
+          "last_name": "example2"
+        },
+        "security": {
+          "mfa_enabled": true
+        }
+      }
+    ]
+  }
+  ]}
+
