@@ -72,9 +72,9 @@ now the server is up and listen through the port writen in the cmd, the default 
 java version 1.8.0_312
 maven version 3.6.0
 maven dependencies:
-    - org.json 20211205
-    - com.jayway.jsonpath 2.7.0
-    - junit 4.13.2
+    - org.json version 20211205
+    - com.jayway.jsonpath version 2.7.0
+    - junit version 4.13.2
 ```
 ## Tests
 

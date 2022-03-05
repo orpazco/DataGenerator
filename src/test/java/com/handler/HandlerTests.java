@@ -4,9 +4,11 @@ import com.configuration.Config;
 import com.configuration.JsonProp;
 import com.configuration.PropData;
 import com.configuration.TableStruct;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -15,27 +17,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-@SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(JUnit4.class)
 public class HandlerTests {
-    private String c1 = "id_test";
-    private String c2 = "name_test";
-    private String c3 = "mfa_test";
-    private String c4 = "name_and_role";
+    private static String c1 = "id_test";
+    private static String c2 = "name_test";
+    private static String c3 = "mfa_test";
+    private static String c4 = "name_and_role";
 
-    private Config config;
+    private static Config config;
 
-    public HandlerTests(){
+    @BeforeClass
+    private static void setUp(){
         config = createConfigFile();
     }
 
     @Test
-    private void test1(){
+    private void testGetPath1(){
 
     }
 
     //region init config file
-    private Config createConfigFile(){
+    private static Config createConfigFile(){
         Config config = new Config();
         // set table struct
         TableStruct tableStruct = new TableStruct();

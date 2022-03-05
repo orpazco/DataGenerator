@@ -17,6 +17,7 @@ import java.util.StringJoiner;
 
 @SpringBootApplication
 public class Handler {
+    private Config config;
 
     /***
      * receive the json event from the server, build the response table and return it as string
@@ -25,30 +26,31 @@ public class Handler {
      * @return table in json format
      */
     public String handleEvent(String jsonEvent, Config config) throws Exception{
+        this.config = config;
         JSONObject jsonObject = new JSONObject(jsonEvent);
         // check if the json event contains array of object or only one object
         if (jsonObject.has("data"))
-            return buildTable(jsonObject.getJSONArray("data"), config);
-        else return buildTable(jsonObject, config);
+            return buildTable(jsonObject.getJSONArray("data"));
+        else return buildTable(jsonObject);
     }
 
-    private String buildTable(JSONArray jsonEvent, Config config) throws Exception {
+    private String buildTable(JSONArray jsonEvent) throws Exception {
         // build the table as json array object
         JSONArray table = new JSONArray();
         // iterate on all the objects received anf build the appropriate table row
         for (int i = 0; i < jsonEvent.length(); i++){
             JSONObject jsonObject = jsonEvent.getJSONObject(i);
-            table.put(buildTableRow(jsonObject, config));
+            table.put(buildTableRow(jsonObject));
         }
         return table.toString();
     }
 
-    private String buildTable(JSONObject jsonobj, Config config) throws Exception {
+    private String buildTable(JSONObject jsonobj) throws Exception {
         // build one table row and return it as string
-        return buildTableRow(jsonobj, config).toString();
+        return buildTableRow(jsonobj).toString();
     }
 
-    private JSONObject buildTableRow(JSONObject jsonEvent, Config config) throws Exception {
+    private JSONObject buildTableRow(JSONObject jsonEvent) throws Exception {
         // create json object who represent the row matches to the current object
         JSONObject item = new JSONObject();
         // set json object fields so the columns will maintain order
@@ -73,10 +75,8 @@ public class Handler {
         StringJoiner joiner = new StringJoiner(" ");
         // go through all json keys to find them in the json file
         for (String key: jsonKeys){
-            // get the property data
-            PropData propData = property.getDataByName(key);
             // build the property path according to configuration
-            String path = getPath(key, propData, property);
+            String path = getPath(key, property);
             // get the property value according to the path that was built
             String value = JsonPath.read(jsonObj.toString(), path).toString();
             joiner.add(value);
@@ -87,13 +87,14 @@ public class Handler {
     /***
      * build the property path in the json file, so it will be possible to get the value
      * @param key the property name
-     * @param propData the current property data
      * @param property configuration file
      * @return the path to the property value in the json
      */
-    private String getPath(String key, PropData propData, JsonProp property) throws Exception {
+    private String getPath(String key, JsonProp property) throws Exception {
         String noneStr = "none";
         String delimiter = ".";
+        // get the property data (parent and index) from the property object
+        PropData propData = property.getDataByName(key);
         // the property is in the first level of the json
         if (propData.getParent().equals(noneStr)) return key;
         else {
