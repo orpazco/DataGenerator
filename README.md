@@ -64,9 +64,8 @@ the `index` property is no mandatory and can be `null`.
 ```shell script
 > mvn exec:java -Dexec.mainClass=com.restservice.DataGenApp --quiet
 ```
-<img src="images/pic1.jpg">
 now the server is up and listen through the port writen in the cmd, the default port is `8080`.
-
+<img src="images/pic1.jpg">
 
 ### Requirements
 ```text

@@ -15,14 +15,20 @@ public class TableStruct {
         return columns;
     }
 
-    public ColumnData getColumnById(int uid){
-        return this.columns.get(uid);
+    public ColumnData getColumnById(int id){
+        return this.columns.get(id);
     }
 
     public static class ColumnData {
-        private int uid;
         private String name;
         private List<String> jsonkeys;
+
+        public ColumnData(){}
+
+        public ColumnData(String name, List<String> jsonkeys){
+            this.name = name;
+            this.jsonkeys = jsonkeys;
+        }
 
         public void setJsonkeys(List<String> jsonkeys) {
             this.jsonkeys = jsonkeys;
@@ -30,14 +36,6 @@ public class TableStruct {
 
         public void setName(String name) {
             this.name = name;
-        }
-
-        public void setUid(int uid) {
-            this.uid = uid;
-        }
-
-        public int getUid() {
-            return uid;
         }
 
         public String getName() {
