@@ -19,17 +19,19 @@ This service receives “events” asynchronously with “evidence” objects in
     +- test
 ```
 ## Code
-The modules containing this project are:
-1. **Configuration** - contains all the objects that holds all the data from the configuration file.
-This objects hold the table structure, and the json property needed to create the table. 
-1. **Generator** - responsible to build the result table according to the struct in the configuration file, extract all the necessary values and return the table as json object. 
-1. **Rest Service** - the restAPI, spring service that received the json from the user and pass it to the handler.
+The modules contained in this project are:
+1. **Configuration** - contains all the objects that hold all the data from the configuration file.
+These objects hold the table structure, and the json property needed to create the table. 
+1. **Generator** - responsible for building the result table according to the struct in the configuration file,
+ extract all the necessary values and return the table as json object. 
+1. **Rest Service** - the restAPI, spring service that receives the json from the user and passes it to the handler.
 <img src="images/uml.png">
 
 ### Configuration File
 The configuration file `application.yml` can be found at `src\main\resources`.
 It consist of two sections: `table` and `json`.
-*  The `table` section hold the `columns`, and each columns contains unique id (serial number), the column name and the relevant properties from the json file that their data needs to be in this column.
+*  The `table` section hold the `columns`, and each columns contains unique id (serial number), the column name and the
+relevant properties from the json file that their data needs to be in this column.
 ```yaml
 table:
     columns:
@@ -53,7 +55,8 @@ json:
         parent: evidence_data
         index: 0
 ```
-each property key is the property name as appear in the json file, the `parent` is the direct parent property of it, and the `index` in the property index in case the parent property type is array.
+each property key is the property name as appear in the json file, the `parent` is the direct parent property of it,
+ and the `index` in the property index in case the parent property type is array.
 the `index` property is no mandatory and can be `null`.
 ## How To Use
 ### Start the server
@@ -76,11 +79,11 @@ Run the main function at DataGenApp, to open up a port to the server.
 <img src="images/pic3.jpg">
 
 ### Send Json File
-To send a raw json file to the server send a POST request via `/createTable` method
+To send an event json to the server send a POST request containing the json to the `/createTable` path:
 ```
 localhost:8080/createTable
 ``` 
-* To send nore than one json file wrapped it with `"data"` array:
+* To send more than one json file wrapped it with `"data"` array:
 ```json
 {
   "data": [{
