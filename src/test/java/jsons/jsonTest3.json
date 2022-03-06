@@ -1,0 +1,27 @@
+{
+  "evidence_id":"3",
+  "evidence_data": [
+    {
+      "login_name": "anecdotes-exercise",
+      "role": "owner",
+      "user-details": {
+        "updated_at": "2021-07-26T09:41:56Z",
+        "id": 120000,
+        "email": "exercise@anecdotes.ai",
+        "first_name": "json",
+        "last_name": "3"
+      },
+      "details2": {
+        "k1": "1",
+        "k2": "2",
+        "id" : "555",
+        "email": "fail",
+        "first_name": "test",
+        "last_name": "3"
+      },
+      "security": {
+        "mfa_enabled": true
+      }
+    }
+  ]
+}

@@ -3,6 +3,7 @@ package com.configuration;
 import java.util.List;
 import java.util.Map;
 
+// This class is used to describe the table struct for the output
 public class TableStruct {
 
     private Map<Integer, ColumnData> columns;

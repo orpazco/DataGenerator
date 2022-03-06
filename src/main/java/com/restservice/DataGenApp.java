@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DataGenApp {
 
+	// initialized by spring
 	@Autowired
 	private Config config;
 	private Handler handler = new Handler();

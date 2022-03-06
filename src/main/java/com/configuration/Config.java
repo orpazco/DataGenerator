@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(prefix = "structure")
+// A structure for holding the configuration file, spring loads the configuration yaml file to this object
 public class Config {
     private JsonProp json;
     private TableStruct table;

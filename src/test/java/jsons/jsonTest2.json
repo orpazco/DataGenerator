@@ -1,0 +1,20 @@
+{
+  "evidence_id":"2",
+  "evidence_data": [
+    {
+      "login_name": "exercise 2",
+      "role": "owner-2",
+      "test key": "test 2",
+      "user-details": {
+        "updated_at": "2021-07-26T09:41:56Z",
+        "id": 99998888,
+        "email": "exercise2@anecdotes.ai",
+        "first_name": "test",
+        "last_name": "2"
+      },
+      "security": {
+        "mfa_enabled": false
+      }
+    }
+  ]
+}

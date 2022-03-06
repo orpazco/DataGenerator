@@ -118,10 +118,15 @@ public class Handler {
     }
 
     // set the json object fields so every item that will be added to ths object will be added to the end of it
-    private void setJsonOrder(JSONObject jsonObject) throws NoSuchFieldException, IllegalAccessException {
-        Field changeMap = jsonObject.getClass().getDeclaredField("map");
-        changeMap.setAccessible(true);
-        changeMap.set(jsonObject, new LinkedHashMap<>());
+    private void setJsonOrder(JSONObject jsonObject) throws IllegalAccessException {
+        try{
+            Field changeMap = jsonObject.getClass().getDeclaredField("map");
+            changeMap.setAccessible(true);
+            changeMap.set(jsonObject, new LinkedHashMap<>());
+        }
+        catch (NoSuchFieldException e){
+            System.out.println(e.getMessage());
+        }
     }
 
 }
