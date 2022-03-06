@@ -56,6 +56,8 @@ json:
 each property key is the property name as appear in the json file, the `parent` is the direct parent property of it, and the `index` in the property index in case the parent property type is array.
 the `index` property is no mandatory and can be `null`.
 ## How To Use
+###1) Start the server
+####Option 1: CMD
 * At the git folder build the project with the command
 ```shell script
 > mvn compile
@@ -67,6 +69,28 @@ the `index` property is no mandatory and can be `null`.
 now the server is up and listen through the port writen in the cmd, the default port is `8080`.
 <img src="images/pic1.jpg">
 
+####option 2: Intellij UI
+Run the main function at DataGenApp, to open up a port to the server.
+<img src="images/pic3.jpg">
+
+###2) Send Json File
+To send a raw json file to the server send a POST request via `/createTable` method
+```
+localhost:8080/createTable
+``` 
+* To send nore than one json file wrapped it with `"data"` array:
+```json
+{
+  "data": [{
+    "evidence_id":"1"
+  },{
+    "evidence_id":"2"
+  },{
+    "evidence_id":"3"
+  }
+  ]}
+```
+
 ### Requirements
 ```text
 java version 1.8.0_312
@@ -76,6 +100,5 @@ maven dependencies:
     - com.jayway.jsonpath version 2.7.0
     - junit version 4.13.2
 ```
-## Tests
 
 
