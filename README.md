@@ -26,7 +26,7 @@ This objects hold the table structure, and the json property needed to create th
 1. **Rest Service** - the restAPI, spring service that received the json from the user and pass it to the handler.
 <img src="images/uml.png">
 
-#### Configuration File
+### Configuration File
 The configuration file `application.yml` can be found at `src\main\resources`.
 It consist of two sections: `table` and `json`.
 *  The `table` section hold the `columns`, and each columns contains unique id (serial number), the column name and the relevant properties from the json file that their data needs to be in this column.
@@ -67,10 +67,12 @@ the `index` property is no mandatory and can be `null`.
 > mvn exec:java -Dexec.mainClass=com.restservice.DataGenApp --quiet
 ```
 now the server is up and listen through the port writen in the cmd, the default port is `8080`.
+
 <img src="images/pic1.jpg">
 
 #### option 2: Intellij UI
 Run the main function at DataGenApp, to open up a port to the server.
+
 <img src="images/pic3.jpg">
 
 ### Send Json File
