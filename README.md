@@ -73,7 +73,7 @@ now the server is up and listen through the port writen in the cmd, the default 
 
 <img src="images/pic1.jpg">
 
-#### option 2: Intellij UI
+#### Option 2: Intellij UI
 Run the main function at DataGenApp, to open up a port to the server.
 
 <img src="images/pic3.jpg">
